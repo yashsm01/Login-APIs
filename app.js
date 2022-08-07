@@ -14,6 +14,10 @@ mongoose.connect("mongodb+srv://user2:Qaswedfr123@cluster0.q7fla.mongodb.net/myD
 });
 
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+app.use('/uploades',express.static('uploades')); 
+app.use('/middleware/images',express.static('middleware/images')); 
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -28,8 +32,6 @@ app.use((req, res, next) => {
     );
     next();
 });
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
 
 app.use("/api",routes);
 
