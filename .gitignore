@@ -1,2 +1,2 @@
-e.log
-err.log
+*.log
+new/
